@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import styles from './menu.css';
 
@@ -68,6 +68,7 @@ const addDividerClassToFirstChild = (child, id) => (
 );
 
 const MenuSection = ({children}) => (
+
     <React.Fragment>{
         React.Children.map(children, addDividerClassToFirstChild)
     }</React.Fragment>

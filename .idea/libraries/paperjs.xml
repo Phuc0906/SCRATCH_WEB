@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="paperjs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/node_modules/@scratch/paper/dist/paperjs.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

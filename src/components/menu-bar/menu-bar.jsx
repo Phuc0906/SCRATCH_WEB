@@ -555,6 +555,7 @@ class MenuBar extends React.Component {
                                         {this.restoreOptionMessage(deletedItem)}
                                     </MenuItem>
                                 )}</DeletionRestorer>
+
                                 <MenuSection>
                                     <TurboMode>{(toggleTurboMode, {turboMode}) => (
                                         <MenuItem onClick={toggleTurboMode}>
@@ -638,26 +639,44 @@ class MenuBar extends React.Component {
                         <FormattedMessage {...ariaMessages.tutorials} />
                     </div>
                     <Divider className={classNames(styles.divider)} />
-                    {this.props.canEditTitle ? (
-                        <div className={classNames(styles.menuBarItem, styles.growable)}>
-                            <MenuBarItemTooltip
-                                enable
-                                id="title-field"
-                            >
-                                <ProjectTitleInput
-                                    className={classNames(styles.titleFieldGrowable)}
-                                />
-                            </MenuBarItemTooltip>
-                        </div>
-                    ) : ((this.props.authorUsername && this.props.authorUsername !== this.props.username) ? (
-                        <AuthorInfo
-                            className={styles.authorInfo}
-                            imageUrl={this.props.authorThumbnailUrl}
-                            projectTitle={this.props.projectTitle}
-                            userId={this.props.authorId}
-                            username={this.props.authorUsername}
-                        />
-                    ) : null)}
+                    <div>
+                        {/* eslint-disable-next-line react/jsx-no-bind,no-console */}
+                        <button onClick={async () => {
+                            try {
+                                const device = await navigator.bluetooth.requestDevice({
+                                    filters: [{ services: ['heart_rate'] }], // Replace with your desired service
+                                });
+
+                                // Do something with the connected device, e.g., display information
+                                // eslint-disable-next-line no-console
+                                console.log('Device:', device);
+                            } catch (error) {
+                                // eslint-disable-next-line no-console
+                                console.error('Error:', error);
+                            }
+                        }}
+                        >Connect Bluetooth</button>
+                    </div>
+                    {/* {this.props.canEditTitle ? ( */}
+                    {/*     <div className={classNames(styles.menuBarItem, styles.growable)}> */}
+                    {/*         <MenuBarItemTooltip */}
+                    {/*             enable */}
+                    {/*             id="title-field" */}
+                    {/*         > */}
+                    {/*             <ProjectTitleInput */}
+                    {/*                 className={classNames(styles.titleFieldGrowable)} */}
+                    {/*             /> */}
+                    {/*         </MenuBarItemTooltip> */}
+                    {/*     </div> */}
+                    {/* ) : ((this.props.authorUsername && this.props.authorUsername !== this.props.username) ? ( */}
+                    {/*     <AuthorInfo */}
+                    {/*         className={styles.authorInfo} */}
+                    {/*         imageUrl={this.props.authorThumbnailUrl} */}
+                    {/*         projectTitle={this.props.projectTitle} */}
+                    {/*         userId={this.props.authorId} */}
+                    {/*         username={this.props.authorUsername} */}
+                    {/*     /> */}
+                    {/* ) : null)} */}
                     <div className={classNames(styles.menuBarItem)}>
                         {this.props.canShare ? (
                             (this.props.isShowingProject || this.props.isUpdating) && (

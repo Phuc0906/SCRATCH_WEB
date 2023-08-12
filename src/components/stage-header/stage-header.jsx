@@ -53,6 +53,7 @@ const StageHeaderComponent = function (props) {
         isPlayerOnly,
         onKeyPress,
         onSetStageLarge,
+        onBluetooth,
         onSetStageSmall,
         onSetStageFull,
         onSetStageUnFull,
@@ -67,16 +68,20 @@ const StageHeaderComponent = function (props) {
         const stageDimensions = getStageDimensions(null, true);
         const stageButton = showBranding ? (
             <div className={styles.embedScratchLogo}>
-                <a
-                    href="https://scratch.mit.edu"
-                    rel="noopener noreferrer"
-                    target="_blank"
+
+                <Button
+                    className={styles.stageButton}
+                    onClick={onSetStageUnFull}
+                    onKeyPress={onKeyPress}
                 >
                     <img
-                        alt="Scratch"
-                        src={scratchLogo}
+                        alt={props.intl.formatMessage(messages.unFullStageSizeMessage)}
+                        className={styles.stageButtonIcon}
+                        draggable={false}
+                        src={unFullScreenIcon}
+                        title={props.intl.formatMessage(messages.fullscreenControl)}
                     />
-                </a>
+                </Button>
             </div>
         ) : (
             <Button
@@ -144,6 +149,7 @@ const StageHeaderComponent = function (props) {
                             />
                         </Button>
                     </div>
+
                 </div>
             );
         header = (

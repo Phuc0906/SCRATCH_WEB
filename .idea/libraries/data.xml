@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="data">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/node_modules/scratch-vm/node_modules/scratch-parser/test/fixtures/data/_zipFakeProjectJson.zip!/" />
+      <root url="jar://$PROJECT_DIR$/node_modules/scratch-vm/node_modules/scratch-parser/test/fixtures/data/_zipNoProjectJson.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
